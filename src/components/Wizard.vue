@@ -42,6 +42,7 @@ const nextStep = () => {
 
 const prevStep = () => {
   if (currentStep.value > 0) {
+message.value = ""
     currentStep.value--;
   }
 };
@@ -72,7 +73,7 @@ const validateEmail = () => {
     message.value = "Invalid email address.";
     return false;
   }
-message.value = ""
+
   return true;
 };
 
