@@ -817,7 +817,7 @@
     "@unocss/preset-mini" "0.59.4"
     "@unocss/rule-utils" "0.59.4"
 
-"@unocss/reset@0.59.4":
+"@unocss/reset@0.59.4", "@unocss/reset@^0.59.4":
   version "0.59.4"
   resolved "https://registry.yarnpkg.com/@unocss/reset/-/reset-0.59.4.tgz#fb6e82e51e577c41a22798b6547bcbe105a74ba1"
   integrity sha512-Upy4xzdWl4RChbLAXBq1BoR4WqxXMoIfjvtcwSZcZK2sylXCFAseSWnyzJFdSiXPqNfmMuNgPXgiSxiQB+cmNA==
