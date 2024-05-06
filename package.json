@@ -20,6 +20,7 @@
     "@vitejs/plugin-vue": "^5.0.4",
     "cypress": "^13.7.0",
     "start-server-and-test": "^2.0.3",
+    "unocss": "^0.59.4",
     "vite": "^5.1.6"
   }
 }
