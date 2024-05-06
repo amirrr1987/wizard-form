@@ -14,7 +14,7 @@ import TheDescription from "@/components/Description.vue";
         />
       </a>
     </div>
-    <div class="container mx-auto px-4 grid grid-cols-2 gap-4">
+    <div class="container mx-auto px-4 grid lg:grid-cols-2 gap-4">
       <TheWizard />
       <TheDescription />
     </div>
