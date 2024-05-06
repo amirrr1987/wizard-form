@@ -37,9 +37,9 @@ const nextStep = () => {
   
 
 if (currentStep.value === 0) {
-    if (!validateUsername()) return;
+    if (!validateUsername()) return false;
   } else if (currentStep.value === 1) {
-    if (!validateEmail()) return;
+    if (!validateEmail()) return false;
   }
 
   message.value = "";
