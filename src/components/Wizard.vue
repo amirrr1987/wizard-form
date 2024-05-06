@@ -4,7 +4,7 @@
       <component :is="steps[currentStep]" v-model:person="person" />
 
       <ErrorMessage :message="message" />
-      {{ message }}
+     
       <StepButtons
         @next="nextStep"
         @prev="prevStep"
