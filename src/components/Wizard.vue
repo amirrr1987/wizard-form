@@ -72,6 +72,7 @@ const validateEmail = () => {
     message.value = "Invalid email address.";
     return false;
   }
+message.value = ""
   return true;
 };
 
