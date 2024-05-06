@@ -34,9 +34,16 @@ const person = ref({
 let currentStep = ref(0);
 
 const nextStep = () => {
-  if (currentStep.value === 0 && !validateUsername()) return;
-  if (currentStep.value === 1 && !validateEmail()) return;
+  
+
+if (currentStep.value === 0) {
+    if (!validateUsername()) return;
+  } else if (currentStep.value === 1) {
+    if (!validateEmail()) return;
+  }
+
   message.value = "";
+
   currentStep.value++;
 };
 
