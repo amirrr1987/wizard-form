@@ -3,11 +3,8 @@
     <form @submit="onSubmitHandler" class="mx-auto">
       <component :is="steps[currentStep]" v-model:person="person" />
 
-      <ErrorMessage
-        :message="message"
-        v-if="person.email.length > 0 || person.username.length > 0"
-      />
-
+      <ErrorMessage :message="message" />
+      {{ message }}
       <StepButtons
         @next="nextStep"
         @prev="prevStep"
@@ -53,16 +50,24 @@ const regex = useRegex();
 const message = ref("");
 
 const validateUsername = () => {
-  if (!person.value.username) {
-    message.value = "username is not empty";
-  }
-  if (person.value.username !== "valid_username") {
+  if (person.value.username.length === 0) {
     message.value = "Invalid Username.";
     return false;
   }
+
+  if (!regex.username.test(person.value.username)) {
+    message.value = "Invalid Username.";
+    return false;
+  }
+
   return true;
 };
 const validateEmail = () => {
+  if (person.value.email.length === 0) {
+    message.value = "Invalid email address.";
+    return false;
+  }
+
   if (!regex.email.test(person.value.email)) {
     message.value = "Invalid email address.";
     return false;

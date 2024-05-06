@@ -55,7 +55,7 @@
 
 <script>
 import { useRegex } from "@/utils/regex";
-import { debounce } from "lodash";
+import { debounce } from "@/utils/debounce";
 
 export default {
   data() {
