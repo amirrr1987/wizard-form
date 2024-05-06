@@ -2,7 +2,7 @@
   <div class="">
     <form @submit="onSubmitHandler" class="mx-auto">
       <component :is="steps[currentStep]" v-model:person="person" />
-{{ person }}}
+
       <ErrorMessage :message="message" />
      
       <StepButtons
