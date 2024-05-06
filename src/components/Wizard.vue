@@ -3,7 +3,10 @@
     <form @submit="onSubmitHandler" class="mx-auto">
       <component :is="steps[currentStep]" v-model:person="person" />
 
-      <ErrorMessage :message="message" />
+      <ErrorMessage
+        :message="message"
+        v-if="person.email.length > 0 || person.username.length > 0"
+      />
 
       <StepButtons
         @next="nextStep"
