@@ -23,8 +23,7 @@
           :class="isBalancedValue ? 'text-green-600' : 'text-red-600'"
           v-if="description"
         >
-          <template v-if="isBalancedValue"> The text is balanced. </template>
-          <template v-else> The text is not balanced. </template>
+          The text is <template v-if="!isBalancedValue">not</template> balanced.
         </p>
       </div>
     </div>
