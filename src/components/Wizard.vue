@@ -47,9 +47,7 @@ const nextStep = () => {
       return false;
     }
   }
-
   message.value = "";
-
   currentStep.value++;
 };
 
