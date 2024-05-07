@@ -4,7 +4,7 @@
       <component :is="steps[currentStep]" v-model:person="person" />
 
       <ErrorMessage :message="message" />
-     
+
       <StepButtons
         @next="nextStep"
         @prev="prevStep"
@@ -23,6 +23,7 @@ import StepButtons from "@/components/Buttons.vue";
 import ErrorMessage from "@/components/Message.vue";
 import { useRegex } from "@/utils/regex";
 import { ref } from "vue";
+import { StepsEnum } from "@/enums";
 
 const steps = [UsernameStep, EmailStep, ReviewStep];
 
@@ -34,12 +35,17 @@ const person = ref({
 let currentStep = ref(0);
 
 const nextStep = () => {
-  
-
-if (currentStep.value === 0) {
-    if (!validateUsername()) return false;
-  } else if (currentStep.value === 1) {
-    if (!validateEmail()) return false;
+  if (currentStep.value === StepsEnum.USERNAME) {
+    if (!regex.isValidUsername(person.value.username)) {
+      message.value = "Invalid Username.";
+      return false;
+    }
+  }
+  if (currentStep.value === StepsEnum.EMAIL) {
+    if (!regex.isValidEmail(person.value.email)) {
+      message.value = "Invalid email address.";
+      return false;
+    }
   }
 
   message.value = "";
@@ -49,7 +55,7 @@ if (currentStep.value === 0) {
 
 const prevStep = () => {
   if (currentStep.value > 0) {
-message.value = ""
+    message.value = "";
     currentStep.value--;
   }
 };
@@ -57,34 +63,7 @@ message.value = ""
 const regex = useRegex();
 const message = ref("");
 
-const validateUsername = () => {
-  if (person.value.username.length === 0) {
-    message.value = "Invalid Username.";
-    return false;
-  }
-
-  if (!regex.username.test(person.value.username)) {
-    message.value = "Invalid Username.";
-    return false;
-  }
-
-  return true;
-};
-const validateEmail = () => {
-  if (person.value.email.length === 0) {
-    message.value = "Invalid email address.";
-    return false;
-  }
-
-  if (!regex.email.test(person.value.email)) {
-    message.value = "Invalid email address.";
-    return false;
-  }
-
-  return true;
-};
-
 const onSubmitHandler = () => {
-  console.log("submit ok");
+  console.dir(person.value);
 };
 </script>

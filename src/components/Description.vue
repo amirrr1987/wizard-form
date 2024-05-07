@@ -70,7 +70,8 @@ export default {
       this.isBalanced();
     }, 300),
     isBalanced() {
-      this.isBalancedValue = !this.regex.chars.test(this.description);
+      // this.isBalancedValue = !this.regex.chars.test(this.description);
+      this.isBalancedValue = !this.regex.isValidChars(this.description);
     },
   },
 };
